@@ -1,0 +1,28 @@
+﻿
+@model IEnumerable<MvcCreditApp1.Models.Bid>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Заявки</h4>
+   
+
+    <div id="results">
+        <h4> Все заявители кредита "@Model.First().CreditHead"</h4>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </div>
+
+   
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
